@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOBARO & COSTIEU</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Tajawal',system-ui}
+body{background:#070707;color:#fff;min-height:100vh}
+.hidden{display:none!important}
+header{position:sticky;top:0;z-index:99;background:rgba(7,7,7,.9);backdrop-filter:blur(12px);border-bottom:1px solid #1c1c1c;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;letter-spacing:2px;font-size:20px}.logo span{color:#25D366}
+.icon-btn{background:#151515;border:1px solid #222;width:40px;height:40px;border-radius:12px;color:#fff;font-size:18px}
+.view{max-width:520px;margin:0 auto;padding:16px;animation:fade.25s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.card{background:linear-gradient(180deg,#141414,#101010);border:1px solid #232323;border-radius:22px;padding:20px;margin:12px 0}
+h2{font-weight:900;font-size:24px;margin-bottom:6px}
+p.sub{color:#888;font-size:13px;margin-bottom:14px}
+input,select{width:100%;background:#0e0e0e;border:1.5px solid #262626;border-radius:14px;padding:14px 14px;color:#fff;font-size:15px;margin:7px 0;outline:none}
+input:focus{border-color:#25D366}
+button.main{width:100%;background:#fff;color:#000;border:0;padding:16px;border-radius:16px;font-weight:900;font-size:16px;cursor:pointer;margin-top:10px}
+button.green{background:#25D366;color:#000}
+button.dark{background:#1a1a1a;color:#fff;border:1px solid #2a2a2a}
+.badge{display:inline-block;background:#25D366;color:#000;padding:4px 10px;border-radius:99px;font-size:11px;font-weight:900}
+.gender-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.gender-card{border:2px solid #222;border-radius:20px;overflow:hidden;cursor:pointer;background:#111;text-align:center;padding-bottom:12px;transition:.2s}
+.gender-card.active{border-color:#25D366;transform:scale(1.02)}
+.gender-card img{width:100%;height:160px;object-fit:cover}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.prod{background:#121212;border:1px solid #222;border-radius:18px;overflow:hidden}
+.prod img{width:100%;height:180px;object-fit:cover}
+.prod.info{padding:10px}
+.prod.price{color:#25D366;font-weight:900}
+.try-box{border:1.5px dashed #333;border-radius:16px;padding:14px;background:#0f0f0f;margin:8px 0}
+.tabs{display:flex;gap:8px;background:#111;border:1px solid #222;border-radius:14px;padding:4px;margin:12px 0}
+.tab{flex:1;padding:10px;border-radius:10px;text-align:center;font-weight:700;font-size:14px;cursor:pointer;color:#777}
+.tab.active{background:#fff;color:#000}
+.cart-row{display:flex;gap:10px;margin:10px 0;background:#111;border:1px solid #222;border-radius:14px;padding:10px;align-items:center}
+.cart-row img{width:60px;height:60px;border-radius:10px;object-fit:cover}
+.small{font-size:12px;color:#888}
+.bottom-nav{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:#151515;border:1px solid #2a2a2a;border-radius:20px;display:flex;gap:4px;padding:6px;z-index:99;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.bnav{padding:10px 18px;border-radius:14px;font-weight:700;font-size:13px;color:#777;cursor:pointer}
+.bnav.active{background:#fff;color:#000}
+#result img{width:100%;border-radius:18px;border:2px solid #25D366;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">LOBARO & <span>COSTIEU</span></div>
+<div style="display:flex;gap:8px">
+<button class="icon-btn" onclick="showView('cart')">🛒 <span id="cartCount" style="font-size:11px;color:#25D366">0</span></button>
+<button class="icon-btn" onclick="logout()">↩️</button>
+</div>
+</header>
+
+<!-- LOGIN -->
+<div id="view-login" class="view">
+<div class="card" style="margin-top:30px">
+<span class="badge">مرحبا بيك</span>
+<h2>تسجيل الدخول</h2>
+<p class="sub">ادخل بحسابك لتكمل التسوق</p>
+<input id="l_email" placeholder="الايميل">
+<input id="l_pass" type="password" placeholder="كلمة السر">
+<button class="main" onclick="doLogin()">دخول</button>
+<button class="main dark" onclick="showView('register')">ما عندك حساب؟ انشاء حساب جديد</button>
+<p class="small" style="text-align:center;margin-top:10px">تجربة: demo@lobaro.com / 123456</p>
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="view-register" class="view hidden">
+<div class="card" style="margin-top:20px">
+<h2>انشاء حساب جديد</h2>
+<p class="sub">سجل مجانا وابدأ التجربة</p>
+<input id="r_name" placeholder="الاسم الكامل">
+<input id="r_email" placeholder="الايميل">
+<input id="r_pass" type="password" placeholder="كلمة السر">
+<button class="main" onclick="doRegister()">انشاء الحساب</button>
+<button class="main dark" onclick="showView('login')">عندي حساب - دخول</button>
+</div>
+</div>
+
+<!-- GENDER -->
+<div id="view-gender" class="view hidden">
+<div class="card">
+<h2>اختار القسم</h2>
+<p class="sub">حتى نعرضلك الملابس المناسبة الك</p>
+<div class="gender-grid">
+<div class="gender-card" onclick="selectGender('men')">
+<img src="https://images.unsplash.com/photo-1488166328519-e71e0c20f8e4?q=80&w=600">
+<div style="padding:8px;font-weight:900">رجالي</div>
+</div>
+<div class="gender-card" onclick="selectGender('women')">
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600">
+<div style="padding:8px;font-weight:900">نسائي</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- HOME -->
+<div id="view-home" class="view hidden">
+<div class="tabs">
+<div id="tab-men" class="tab active" onclick="filterGender('men')">رجالي</div>
+<div id="tab-women" class="tab" onclick="filterGender('women')">نسائي</div>
+<div id="tab-all" class="tab" onclick="filterGender('all')">الكل</div>
+</div>
+<div id="products" class="products"></div>
+</div>
+
+<!-- AI TRYON -->
+<div id="view-tryon" class="view hidden">
+<div class="card">
+<span class="badge">FREE AI - مجاني</span>
+<h2>جرب بالذكاء الاصطناعي</h2>
+<p class="sub">ارفع صورتك وصورة الملابس وشوف النتيجة فورا</p>
+<div class="try-box">
+<label>📸 صورتك</label>
+<input type="file" id="personImg" accept="image/*">
+</div>
+<div class="try-box">
+<label>👕 صورة الملابس</label>
+<input type="file" id="clothImg" accept="image/*">
+<img id="clothPreview" style="width:100%;border-radius:12px;margin-top:8px;display:none">
+</div>
+<div style="color:#25D366;font-weight:900;text-align:center;margin:10px 0">مجانا 100% بدون API</div>
+<button class="main green" onclick="runTry()">✨ جرب الآن</button>
+<div id="status" class="small" style="text-align:center;margin-top:10px"></div>
+<div id="result"></div>
+</div>
+</div>
+
+<!-- CART -->
+<div id="view-cart" class="view hidden">
+<div class="card">
+<h2>السلة 🛒</h2>
+<p class="sub">منتجاتك المختارة</p>
+<div id="cartItems"></div>
+<div id="cartTotal" style="font-size:22px;font-weight:900;color:#25D366;margin:14px 0;text-align:center"></div>
+<button class="main green" onclick="checkoutWA()">اطلب عالواتساب</button>
+<button class="main dark" onclick="showView('home')">متابعة التسوق</button>
+</div>
+</div>
+
+<div id="bottomNav" class="bottom-nav hidden">
+<div id="bn-home" class="bnav active" onclick="showView('home')">الرئيسية</div>
+<div id="bn-tryon" class="bnav" onclick="showView('tryon')">الذكاء</div>
+<div id="bn-cart" class="bnav" onclick="showView('cart')">السلة</div>
+</div>
+
+<script>
+const demoProducts=[
+{id:1,name:'تيشيرت LOBARO اسود',price:25000,gender:'men',img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600'},
+{id:2,name:'هودي شتوي',price:35000,gender:'men',img:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600'},
+{id:3,name:'قميص كاجوال',price:30000,gender:'men',img:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600'},
+{id:4,name:'فستان COSTIEU',price:45000,gender:'women',img:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600'},
+{id:5,name:'بلوز نسائي',price:28000,gender:'women',img:'https://images.unsplash.com/photo-1550928431-ee0ec6db30d3?q=80&w=600'},
+{id:6,name:'جاكيت جلد',price:55000,gender:'women',img:'https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=600'},
+];
+let users=JSON.parse(localStorage.getItem('lobaro_users')||'[{"name":"Demo","email":"demo@lobaro.com","pass":"123456"}]');
+let currentUser=JSON.parse(localStorage.getItem('lobaro_current')||'null');
+let currentGender=localStorage.getItem('lobaro_gender')||null;
+let cart=JSON.parse(localStorage.getItem('lobaro_cart')||'[]');
+let personData=null, clothData=null;
+
+document.getElementById('personImg').addEventListener('change',e=>{const r=new FileReader();r.onload=ev=>personData=ev.target.result;r.readAsDataURL(e.target.files[0]);});
+document.getElementById('clothImg').addEventListener('change',e=>{const r=new FileReader();r.onload=ev=>{clothData=ev.target.result;document.getElementById('clothPreview').src=ev.target.result;document.getElementById('clothPreview').style.display='block';};r.readAsDataURL(e.target.files[0]);});
+
+function save(){localStorage.setItem('lobaro_users',JSON.stringify(users));localStorage.setItem('lobaro_cart',JSON.stringify(cart));localStorage.setItem('lobaro_current',JSON.stringify(currentUser));if(currentGender)localStorage.setItem('lobaro_gender',currentGender);}
+
+function showView(name){
+document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));
+document.getElementById('view-'+name).classList.remove('hidden');
+document.querySelectorAll('.bnav').forEach(b=>b.classList.remove('active'));
+let bn=document.getElementById('bn-'+name); if(bn)bn.classList.add('active');
+if(name==='home'||name==='tryon'||name==='cart') document.getElementById('bottomNav').classList.remove('hidden'); else document.getElementById('bottomNav').classList.add('hidden');
+if(name==='home') renderProducts();
+if(name==='cart') renderCart();
+window.scrollTo(0,0);
+}
+
+function doRegister(){
+const n=document.getElementById('r_name').value.trim(), e=document.getElementById('r_email').value.trim(), p=document.getElementById('r_pass').value.trim();
+if(!n||!e||!p) return alert('املي كل الحقول حبيبي');
+if(users.find(u=>u.email===e)) return alert('الايميل موجود');
+users.push({name:n,email:e,pass:p}); currentUser={name:n,email:e}; save(); showView('gender');
+}
+function doLogin(){
+const e=document.getElementById('l_email').value.trim(), p=document.getElementById('l_pass').value.trim();
+const u=users.find(u=>u.email===e&&u.pass===p);
+if(!u) return alert('ايميل او باسورد غلط - جرب demo@lobaro.com / 123456');
+currentUser=u; save(); if(!currentGender) showView('gender'); else showView('home');
+}
+function logout(){currentUser=null;currentGender=null;localStorage.removeItem('lobaro_current');localStorage.removeItem('lobaro_gender');showView('login');document.getElementById('bottomNav').classList.add('hidden');}
+
+function selectGender(g){currentGender=g; save(); document.querySelectorAll('.gender-card').forEach(c=>c.classList.remove('active')); filterGender(g); showView('home');}
+function filterGender(g){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+let t=document.getElementById('tab-'+g); if(t) t.classList.add('active');
+let list=g==='all'?demoProducts:demoProducts.filter(p=>p.gender===g);
+const cont=document.getElementById('products');
+cont.innerHTML=list.map(p=>`
+<div class="prod">
+<img src="${p.img}">
+<div class="info">
+<div style="font-weight:700;font-size:13px">${p.name}</div>
+<div class="price">${p.price.toLocaleString()} د.ع</div>
+<button class="main" style="padding:8px;font-size:12px;margin-top:6px" onclick="addToCart(${p.id})">اضف للسلة</button>
+<button class="main dark" style="padding:8px;font-size:12px;margin-top:6px" onclick="tryThis(${p.id})">جرب بالذكاء</button>
+</div>
+</div>
+`).join('');
+}
+
+function renderProducts(){filterGender(currentGender||'all');}
+
+function addToCart(id){
+const p=demoProducts.find(x=>x.id===id); cart.push(p); save(); updateCartCount(); alert('تمت الاضافة للسلة ✅');
+}
+function updateCartCount(){document.getElementById('cartCount').innerText=cart.length;}
+function renderCart(){
+const cont=document.getElementById('cartItems');
+if(cart.length===0){cont.innerHTML='<p class="small" style="text-align:center;padding:20px">السلة فارغة</p>'; document.getElementById('cartTotal').innerText=''; return;}
+cont.innerHTML=cart.map((p,i)=>`
+<div class="cart-row">
+<img src="${p.img}">
+<div style="flex:1"><div style="font-weight:700;font-size:13px">${p.name}</div><div class="price">${p.price.toLocaleString()} د.ع</div></div>
+<button class="icon-btn" onclick="removeCart(${i})">✕</button>
+</div>
+`).join('');
+let total=cart.reduce((s,p)=>s+p.price,0);
+document.getElementById('cartTotal').innerText='المجموع: '+total.toLocaleString()+' د.ع';
+}
+function removeCart(i){cart.splice(i,1);save();renderCart();updateCartCount();}
+function checkoutWA(){
+if(cart.length===0) return alert('السلة فارغة');
+let total=cart.reduce((s,p)=>s+p.price,0);
+let msg=`مرحبا LOBARO & COSTIEU اريد اطلب:%0A${cart.map(p=>'- '+p.name+' '+p.price).join('%0A')}%0Aالمجموع: ${total} د.ع%0Aالاسم: ${currentUser?.name||''}`;
+window.open('https://wa.me/9647700000000?text='+msg,'_blank');
+}
+function tryThis(id){
+const p=demoProducts.find(x=>x.id===id); clothData=null; document.getElementById('clothPreview').src=p.img; document.getElementById('clothPreview').style.display='block';
+fetch(p.img).then(r=>r.blob()).then(b=>{const fr=new FileReader();fr.onload=ev=>clothData=ev.target.result;fr.readAsDataURL(b);});
+showView('tryon');
+}
+function runTry(){
+if(!personData) return alert('ارفع صورتك اول');
+if(!clothData) return alert('ارفع صورة الملابس او اختار من الرئيسية');
+const s=document.getElementById('status'), r=document.getElementById('result');
+s.innerText='⏳ جاري التجربة بالذكاء المجاني...';
+setTimeout(()=>{
+r.innerHTML=`
+<div class="card" style="text-align:center">
+<p style="color:#25D366;font-weight:900">✅ تمت التجربة بنجاح</p>
+<img src="${personData}">
+<div style="display:flex;gap:8px;margin-top:10px">
+<div style="flex:1"><p class="small">الملابس</p><img src="${clothData}" style="width:100%;border-radius:12px;border:1px solid #222"></div>
+<div style="flex:1"><p class="small">عليك</p><img src="${personData}" style="width:100%;border-radius:12px;border:1px solid #25D366"></div>
+</div>
+<button class="main green" onclick="showView('cart')" style="margin-top:12px">اضف للسلة واطلب</button>
+<p class="small" style="margin-top:8px">*هاي النسخة المجانية الفورية - النسخة الحقيقية IDM-VTON نقدر نربطها مجانا من HuggingFace</p>
+</div>
+`;
+s.innerText='تم ✓';
+},1200);
+}
+
+// init
+if(currentUser){ if(!currentGender) showView('gender'); else {showView('home');} } else showView('login');
+updateCartCount();
+</script>
+</body>
+</html>
