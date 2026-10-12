@@ -2,121 +2,42 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOBARO & COSTIEU | LUXURY</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Tajawal:wght@500;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>LOBARO & COSTIEU</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:'Tajawal',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Tajawal',sans-serif}
+body{background:#000;color:#fff;overflow-x:hidden}
 .hidden{display:none!important}
-.view{max-width:500px;margin:0 auto;min-height:100vh;background:#000;position:relative;overflow:hidden}
-.gold{color:#D4AF37}
-.split{height:100vh;display:flex;flex-direction:column}
-.split-top{flex:1;position:relative;background:#0a0a0a;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1.5px solid #D4AF37}
-.split-bottom{flex:1;position:relative;background:#f5efe6;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.split img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-.split.content{position:relative;z-index:2;text-align:center;padding:20px}
-.title{font-family:'Cormorant Garamond',serif;font-size:42px;letter-spacing:5px;font-weight:700}
-.btn-lux{margin-top:18px;border:1.5px solid #D4AF37;color:#D4AF37;background:transparent;padding:12px 36px;border-radius:30px;font-weight:800;letter-spacing:1px;cursor:pointer}
-.badge{position:absolute;top:18px;left:50%;transform:translateX(-50%);background:#D4AF37;color:#000;font-size:10px;font-weight:900;padding:6px 16px;border-radius:20px;letter-spacing:1px;z-index:3}
-.login-wrap{min-height:100vh;background:radial-gradient(circle at 50% 0%,#1a1a1a,#000);display:flex;flex-direction:column;justify-content:center;padding:24px}
-.card{background:rgba(20,20,20,.8);border:1px solid #222;border-radius:28px;padding:22px}
-input{width:100%;background:#111;border:1px solid #222;border-radius:14px;padding:15px;color:#fff;margin-bottom:12px;outline:none}
-button.main{width:100%;padding:15px;border-radius:14px;border:none;font-weight:900;font-size:15px;cursor:pointer}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px 14px 90px}
-.card-p{background:#111;border:1px solid #1d1d1d;border-radius:20px;overflow:hidden}
-.card-p img{width:100%;height:190px;object-fit:cover}
-.card-p.info{padding:12px}
-.nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#1a1a1a;border:1px solid #2a2a2a;border-radius:30px;display:flex;padding:6px;z-index:30}
-.nav button{background:transparent;border:none;color:#777;padding:10px 20px;border-radius:20px;font-weight:800}
-.nav button.active{background:#fff;color:#000}
-.header{padding:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #111;position:sticky;top:0;background:#000;z-index:10}
-.ai-box{margin:14px;border:2px dashed #333;border-radius:24px;padding:24px;text-align:center;background:#0f0f0f}
+.view{max-width:500px;margin:0 auto;min-height:100vh;background:#000;position:relative}
+.header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #111;position:sticky;top:0;background:#000;z-index:50}
+.logo{font-weight:900;letter-spacing:3px;font-size:16px}
+.cart-btn{width:42px;height:38px;background:#111;border:1px solid #222;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.ai-banner{margin:12px 12px 0;background:#111;border:1px solid #1e1e1e;border-radius:16px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between}
+.btn-gold{background:#D4AF37;color:#000;border:none;padding:8px 18px;border-radius:10px;font-weight:900;font-size:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 120px}
+.card{background:#121212;border:1px solid #1e1e1e;border-radius:18px;overflow:hidden}
+.card img{width:100%;height:200px;object-fit:cover;display:block}
+.card .info{padding:10px 10px 12px}
+.card .name{font-size:13px;font-weight:700;line-height:1.3;height:36px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.card .price{color:#D4AF37;font-weight:900;font-size:14px;margin-top:6px;text-align:left;direction:ltr}
+.card .btn-w{width:100%;background:#fff;color:#000;border:none;padding:11px;border-radius:12px;font-weight:800;font-size:13px;margin-top:8px}
+.card .btn-a{width:100%;background:transparent;color:#D4AF37;border:1px solid #2a2a2a;padding:8px;border-radius:12px;font-size:11px;margin-top:6px;font-weight:700}
+.bottom-nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#1e1e1e;border:1px solid #333;border-radius:30px;display:flex;gap:4px;padding:6px;z-index:100;box-shadow:0 10px 30px rgba(0,0,0,.8)}
+.bottom-nav button{background:transparent;border:none;color:#888;padding:10px 18px;border-radius:20px;font-weight:800;font-size:13px}
+.bottom-nav button.active{background:#fff;color:#000}
 </style>
 </head>
 <body>
-<div id="vLogin" class="view">
-<div class="login-wrap">
-<div style="text-align:center;margin-bottom:28px">
-<div style="font-family:'Cormorant Garamond';font-size:16px;letter-spacing:6px;color:#D4AF37">LOBARO & COSTIEU</div>
-<div style="font-size:38px;font-weight:900;margin-top:12px;line-height:1">Welcome<br><span class="gold">Back</span></div>
-<p style="color:#666;margin-top:8px">ادخل لعالم الفخامة - الذكاء مجاني ✨</p>
-</div>
-<div class="card">
-<input placeholder="الايميل">
-<input type="password" placeholder="الباسورد">
-<button class="main" style="background:#fff;color:#000" onclick="goGender()">دخول</button>
-<button class="main" style="background:transparent;color:#fff;border:1px solid #222;margin-top:10px" onclick="goGender()">انشاء حساب</button>
-<div style="text-align:center;color:#555;font-size:11px;margin-top:14px">✨ جرب الملابس بالذكاء الاصطناعي مجانا 100%</div>
-</div>
-</div>
-</div>
-
-<div id="vGender" class="view hidden">
-<div class="split">
-<div class="split-top" onclick="choose('men')">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80">
-<div class="badge">FOR HIM • LOBARO</div>
-<div class="content">
-<div class="title" style="color:#fff">LOBARO</div>
-<div style="color:#D4AF37;letter-spacing:3px;font-size:12px;margin-top:4px">الرجالي الفاخر</div>
-<button class="btn-lux">دخول LOBARO</button>
-</div>
-</div>
-<div class="split-bottom" onclick="choose('women')">
-<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=80" style="opacity:.35">
-<div class="badge" style="background:#3a1f1f;color:#f5efe6">FOR HER • COSTIEU</div>
-<div class="content">
-<div class="title" style="color:#3a1f1f">COSTIEU</div>
-<div style="color:#8b5a5a;letter-spacing:3px;font-size:12px;margin-top:4px">النسائي الراقي</div>
-<button class="btn-lux" style="border-color:#3a1f1f;color:#3a1f1f">دخول COSTIEU</button>
-</div>
-</div>
-</div>
-</div>
-
-<div id="vShop" class="view hidden">
-<div class="header"><div id="shopTitle" style="font-family:'Cormorant Garamond';font-size:20px;letter-spacing:2px">LOBARO</div><div onclick="openCart()" style="background:#111;border:1px solid #222;padding:8px 12px;border-radius:12px">🛒 <span id="cCount" style="color:#D4AF37;font-weight:900">0</span></div></div>
-<div style="margin:12px;background:linear-gradient(135deg,#111,#1a1a1a);border:1px solid #222;border-radius:18px;padding:14px;display:flex;gap:12px;align-items:center"><div style="font-size:28px">✨</div><div style="flex:1"><div style="font-weight:800;font-size:13px">جرب بالذكاء الاصطناعي مجانا</div><div style="color:#777;font-size:11px">ارفع صورتك وشوف اللبس عليك</div></div><button onclick="openAI()" style="background:#D4AF37;color:#000;border:none;padding:8px 14px;border-radius:10px;font-weight:900;font-size:12px">جرب</button></div>
+<div id="vShop" class="view">
+<div class="header"><div class="cart-btn" onclick="openCart()">🛒 <span id="cC" style="color:#D4AF37;font-size:11px;font-weight:900">0</span></div><div class="logo">LOBARO</div></div>
+<div class="ai-banner"><div style="display:flex;gap:10px;align-items:center"><div style="font-size:22px">✨</div><div><b style="font-size:13px">جرب بالذكاء الاصطناعي مجانا</b><br><small style="color:#777;font-size:11px">ارفع صورتك وشوف اللبس عليك</small></div></div><button class="btn-gold" onclick="openAI()">جرب</button></div>
 <div id="grid" class="grid"></div>
-<div class="nav"><button onclick="openCart()">السلة</button><button onclick="openAI()">الذكاء ✨</button><button class="active">الرئيسية</button></div>
+<div class="bottom-nav"><button onclick="openCart()">السلة</button><button onclick="openAI()">الذكاء ✨</button><button class="active">الرئيسية</button></div>
 </div>
-
-<div id="vCart" class="view hidden" style="padding:16px">
-<h2 style="font-family:'Cormorant Garamond';font-size:28px">السلة</h2>
-<div id="cartList" style="margin-top:14px"></div>
-<div id="total" style="font-weight:900;margin-top:12px;font-size:20px"></div>
-<button class="main" style="background:#D4AF37;color:#000;margin-top:14px" onclick="orderWA()">اطلب واتساب 📲</button>
-<button class="main" style="background:#111;color:#fff;border:1px solid #222;margin-top:8px" onclick="showShop()">رجوع</button>
-</div>
-
-<div id="vAI" class="view hidden" style="padding:16px">
-<h2 style="font-family:'Cormorant Garamond';font-size:28px">جرب بالذكاء ✨ مجانا</h2>
-<div class="ai-box">
-<div id="pre">👤<br><span style="color:#555">ارفع صورتك</span></div>
-<img id="aiImg" class="hidden" style="width:100%;border-radius:16px;max-height:360px;object-fit:cover">
-<div id="sel" style="margin-top:12px"></div>
-<label for="f" style="display:inline-block;margin-top:14px;background:#fff;color:#000;padding:12px 22px;border-radius:14px;font-weight:900;cursor:pointer">📸 ارفع صورتك</label>
-<input type="file" id="f" hidden accept="image/*" onchange="loadF(this)">
-</div>
-<div class="nav"><button onclick="openCart()">السلة</button><button class="active">الذكاء</button><button onclick="showShop()">الرئيسية</button></div>
-</div>
-
 <script>
-let men=[{id:1,name:'تيشيرت LOBARO Premium',price:28000,img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400'},{id:2,name:'هودي LOBARO شتوي',price:42000,img:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400'},{id:3,name:'قميص كاجوال فاخر',price:35000,img:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400'}];
-let women=[{id:5,name:'فستان COSTIEU سهرة',price:65000,img:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400'},{id:6,name:'طقم COSTIEU راقي',price:48000,img:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400'}];
-let all=[...men,...women];let cart=[];let cur='men';let aiProd=null;
-function goGender(){document.getElementById('vLogin').classList.add('hidden');document.getElementById('vGender').classList.remove('hidden');}
-function choose(g){cur=g;document.getElementById('vGender').classList.add('hidden');document.getElementById('vShop').classList.remove('hidden');document.getElementById('shopTitle').innerText=g==='men'?'LOBARO':'COSTIEU';render();}
-function render(){const gr=document.getElementById('grid');gr.innerHTML='';(cur==='men'?men:women).forEach(p=>{gr.innerHTML+=`<div class="card-p"><img src="${p.img}"><div class="info"><div style="font-weight:800;font-size:13px">${p.name}</div><div style="color:#D4AF37;font-weight:900;margin-top:4px">${p.price.toLocaleString()} د.ع</div><button onclick="addC(${p.id})" style="width:100%;margin-top:8px;background:#fff;color:#000;border:none;padding:10px;border-radius:12px;font-weight:900;font-size:12px">اضف للسلة</button><button onclick="tryP(${p.id})" style="width:100%;margin-top:6px;background:transparent;color:#D4AF37;border:1px solid #D4AF37;padding:8px;border-radius:12px;font-weight:800;font-size:11px">جرب بالذكاء ✨ مجانا</button></div></div>`;});}
-function addC(id){let p=all.find(x=>x.id===id);cart.push(p);document.getElementById('cCount').innerText=cart.length;alert('تمت الاضافة ✅');}
-function showShop(){document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vShop').classList.remove('hidden');}
-function openCart(){document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vCart').classList.remove('hidden');let l=document.getElementById('cartList');l.innerHTML='';let t=0;cart.forEach((c,i)=>{t+=c.price;l.innerHTML+=`<div style="display:flex;gap:10px;background:#111;border:1px solid #1a1a1a;border-radius:14px;padding:10px;margin-bottom:8px"><img src="${c.img}" style="width:64px;height:64px;border-radius:10px"><div style="flex:1"><div style="font-weight:800;font-size:13px">${c.name}</div><div style="color:#D4AF37">${c.price.toLocaleString()} د.ع</div><div onclick="cart.splice(${i},1);document.getElementById('cCount').innerText=cart.length;openCart()" style="color:#f55;font-size:11px;margin-top:4px">حذف</div></div></div>`;});document.getElementById('total').innerText='المجموع: '+t.toLocaleString()+' د.ع';}
-function openAI(){document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vAI').classList.remove('hidden');}
-function tryP(id){aiProd=all.find(x=>x.id===id);openAI();document.getElementById('sel').innerHTML=`<div style="background:#111;border:1px solid #222;border-radius:12px;padding:8px;display:flex;gap:8px;align-items:center"><img src="${aiProd.img}" style="width:50px;height:50px;border-radius:8px"><div><div style="font-weight:800;font-size:12px">${aiProd.name}</div><div style="color:#D4AF37;font-size:11px">${aiProd.price.toLocaleString()} د.ع</div></div></div><button onclick="doTry()" style="width:100%;margin-top:10px;background:#D4AF37;color:#000;border:none;padding:12px;border-radius:12px;font-weight:900">جرب الآن ✨ مجانا</button>`;}
-function loadF(inp){if(inp.files[0]){let r=new FileReader();r.onload=e=>{document.getElementById('aiImg').src=e.target.result;document.getElementById('aiImg').classList.remove('hidden');document.getElementById('pre').classList.add('hidden');};r.readAsDataURL(inp.files[0]);}}
-function doTry(){if(!document.getElementById('aiImg').src){alert('ارفع صورتك');return;}alert('تمت تجربة '+aiProd.name+' عليك بنجاح ✨');}
-function orderWA(){if(!cart.length){alert('السلة فارغة');return;}let txt='مرحبا LOBARO اريد:%0A';cart.forEach(c=>txt+=`- ${c.name} ${c.price} د.ع%0A`);window.open('https://wa.me/9647700000000?text='+txt);}
+let men=[{id:1,name:'هودي LOBARO شتوي',price:42000,img:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500'},{id:2,name:'تيشيرت LOBARO Premium',price:28000,img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500'},{id:3,name:'قميص كاجوال',price:35000,img:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500'}];
+let cart=[];function render(){let gr=document.getElementById('grid');gr.innerHTML='';men.forEach(p=>{gr.innerHTML+=`<div class="card"><img src="${p.img}"><div class="info"><div class="name">${p.name}</div><div class="price">${p.price.toLocaleString()} د.ع</div><button class="btn-w" onclick="cart.push(men.find(x=>x.id==${p.id}));document.getElementById('cC').innerText=cart.length">اضف للسلة</button><button class="btn-a">جرب بالذكاء ✨ مجانا</button></div></div>`;});}render();
 </script>
 </body>
 </html>
