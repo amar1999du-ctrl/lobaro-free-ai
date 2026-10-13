@@ -4,40 +4,160 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>LOBARO & COSTIEU</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Tajawal',sans-serif}
-body{background:#000;color:#fff;overflow-x:hidden}
+body{background:#000;display:flex;justify-content:center;min-height:100vh}
 .hidden{display:none!important}
-.view{max-width:500px;margin:0 auto;min-height:100vh;background:#000;position:relative}
-.header{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #111;position:sticky;top:0;background:#000;z-index:50}
-.logo{font-weight:900;letter-spacing:3px;font-size:16px}
-.cart-btn{width:42px;height:38px;background:#111;border:1px solid #222;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.ai-banner{margin:12px 12px 0;background:#111;border:1px solid #1e1e1e;border-radius:16px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between}
-.btn-gold{background:#D4AF37;color:#000;border:none;padding:8px 18px;border-radius:10px;font-weight:900;font-size:13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 12px 120px}
-.card{background:#121212;border:1px solid #1e1e1e;border-radius:18px;overflow:hidden}
-.card img{width:100%;height:200px;object-fit:cover;display:block}
-.card .info{padding:10px 10px 12px}
-.card .name{font-size:13px;font-weight:700;line-height:1.3;height:36px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.card .price{color:#D4AF37;font-weight:900;font-size:14px;margin-top:6px;text-align:left;direction:ltr}
-.card .btn-w{width:100%;background:#fff;color:#000;border:none;padding:11px;border-radius:12px;font-weight:800;font-size:13px;margin-top:8px}
-.card .btn-a{width:100%;background:transparent;color:#D4AF37;border:1px solid #2a2a2a;padding:8px;border-radius:12px;font-size:11px;margin-top:6px;font-weight:700}
-.bottom-nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#1e1e1e;border:1px solid #333;border-radius:30px;display:flex;gap:4px;padding:6px;z-index:100;box-shadow:0 10px 30px rgba(0,0,0,.8)}
-.bottom-nav button{background:transparent;border:none;color:#888;padding:10px 18px;border-radius:20px;font-weight:800;font-size:13px}
-.bottom-nav button.active{background:#fff;color:#000}
+.view{width:100%;max-width:430px;min-height:100vh;background:#000;position:relative;overflow:hidden}
+
+/* === 1- دخولية نفس الصورة طبق الأصل === */
+.entry{height:100vh;display:flex;flex-direction:column;background:#0d0d0d}
+.entry-head{height:80px;background:#1a0f1f;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #2a1f30}
+.entry-head h1{font-family:'Cormorant Garamond',serif;color:#C9A86A;letter-spacing:3px;font-size:22px;font-weight:700}
+.split{flex:1;display:flex}
+.side{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:32px 12px 28px}
+.side-costieu{background:linear-gradient(180deg,#5a1a22 0%,#3d1218 100%)}
+.side-lobaro{background:linear-gradient(180deg,#142a4a 0%,#0d1c34 100%)}
+.side h2{font-family:'Cormorant Garamond',serif;color:#E8C99A;font-size:32px;text-align:center;line-height:1;letter-spacing:1px}
+.side h2 span{font-family:'Tajawal';font-size:16px;display:block;margin-top:6px;font-weight:400;color:#E8C99A}
+.art{flex:1;display:flex;align-items:center;justify-content:center;width:100%;margin:20px 0}
+.btn-gold{width:100%;background:linear-gradient(180deg,#E8C99A,#C9A86A);color:#3d2610;border:none;padding:12px 8px;border-radius:28px;font-weight:800;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,0.4)}
+
+/* === 2- تسجيل دخول عراقي === */
+.login-bg{min-height:100vh;background:radial-gradient(ellipse at 20% 30%, rgba(20,15,10,0.8) 0%, transparent 50%),linear-gradient(180deg,#0a0a0a,#050505);display:flex;align-items:center;justify-content:center;padding:20px 16px;position:relative}
+.login-bg::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800') center/cover;opacity:0.06}
+.card{width:100%;background:linear-gradient(180deg,rgba(18,18,18,0.96),rgba(10,10,10,0.98));border:1px solid rgba(201,168,106,0.3);border-radius:24px;padding:32px 22px 24px;position:relative;z-index:2;box-shadow:0 25px 80px rgba(0,0,0,0.9)}
+.top-title{font-family:'Cormorant Garamond',serif;color:#C9A86A;font-size:20px;letter-spacing:3px;text-align:center}
+.main-title{color:#C9A86A;font-size:32px;font-weight:700;text-align:center;margin:18px 0 8px}
+.sub-title{color:#666;font-size:13px;text-align:center;margin-bottom:26px}
+.label{color:#C9A86A;font-size:13px;text-align:center;margin:16px 0 8px}
+.input-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,106,0.35);border-radius:12px;display:flex;align-items:center;padding:0 14px;height:52px}
+.input-wrap input{flex:1;background:transparent;border:none;color:#fff;font-size:15px;outline:none}
+.btn-enter{width:100%;background:linear-gradient(180deg,#E8C99A,#C9A86A);color:#1a1205;border:none;border-radius:12px;padding:14px;font-size:20px;font-weight:800;margin-top:20px}
+
+/* متجر */
+.header{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#000;border-bottom:1px solid #111;position:sticky;top:0;z-index:10}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 10px 110px}
+.card-p{background:#111;border:1px solid #1e1e1e;border-radius:16px;overflow:hidden}
+.card-p img{width:100%;height:180px;object-fit:cover;display:block}
+.nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#1e1e1e;border:1px solid #333;border-radius:30px;display:flex;padding:5px;z-index:20}
+.nav button{background:transparent;border:none;color:#888;padding:9px 16px;border-radius:20px;font-weight:800;font-size:12px}
+.nav button.active{background:#fff;color:#000}
 </style>
 </head>
 <body>
-<div id="vShop" class="view">
-<div class="header"><div class="cart-btn" onclick="openCart()">🛒 <span id="cC" style="color:#D4AF37;font-size:11px;font-weight:900">0</span></div><div class="logo">LOBARO</div></div>
-<div class="ai-banner"><div style="display:flex;gap:10px;align-items:center"><div style="font-size:22px">✨</div><div><b style="font-size:13px">جرب بالذكاء الاصطناعي مجانا</b><br><small style="color:#777;font-size:11px">ارفع صورتك وشوف اللبس عليك</small></div></div><button class="btn-gold" onclick="openAI()">جرب</button></div>
-<div id="grid" class="grid"></div>
-<div class="bottom-nav"><button onclick="openCart()">السلة</button><button onclick="openAI()">الذكاء ✨</button><button class="active">الرئيسية</button></div>
+
+<!-- 1- الدخولية نفس صورتك -->
+<div id="vEntry" class="view">
+<div class="entry">
+<div class="entry-head"><h1>LOBARO & COSTIEU</h1></div>
+<div class="split">
+<div class="side side-costieu" onclick="goLogin('women')">
+<div><h2>COSTIEU <span>كوستيو</span></h2></div>
+<div class="art">
+<!-- رسمة بنت ذهبية نفس الصورة -->
+<svg width="110" height="280" viewBox="0 0 110 280" fill="none" stroke="#E8C99A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+<path d="M55 12 C 48 12, 42 18, 44 26 C 46 22, 52 20, 55 22 C 58 20, 64 22, 66 26 C 68 18, 62 12, 55 12 Z"/>
+<path d="M44 26 Q 38 32, 36 42 Q 42 38, 44 30 M66 26 Q 72 32, 74 42 Q 68 38, 66 30"/>
+<path d="M38 45 Q 32 55, 34 75 Q 28 78, 26 90 Q 24 100, 22 115"/>
+<path d="M72 45 Q 78 55, 76 75 Q 82 80, 84 95 Q 86 105, 82 115"/>
+<path d="M34 75 Q 44 70, 55 72 Q 66 70, 76 75"/>
+<path d="M36 72 Q 30 85, 28 100"/>
+<path d="M74 72 Q 80 85, 82 100"/>
+<path d="M45 72 Q 55 85, 58 98 Q 60 115, 54 135 Q 50 155, 46 175 Q 44 195, 42 215 Q 40 235, 48 245"/>
+<path d="M65 72 Q 58 85, 56 100 Q 58 120, 62 140 Q 66 160, 68 180 Q 70 200, 72 220"/>
+<path d="M46 175 Q 55 172, 62 175"/>
+</svg>
 </div>
+<button class="btn-gold">Shop Women's</button>
+</div>
+<div class="side side-lobaro" onclick="goLogin('men')">
+<div><h2>LOBARO <span>لوبارو</span></h2></div>
+<div class="art">
+<!-- رسمة ولد ذهبية نفس الصورة -->
+<svg width="100" height="280" viewBox="0 0 100 280" fill="none" stroke="#E8C99A" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+<path d="M50 25 C 50 25, 42 25, 42 33 C 42 38, 50 40, 50 40 C 50 40, 58 38, 58 33 C 58 25, 50 25, 50 25 Z"/>
+<path d="M34 50 L 26 65 L 30 135 L 22 140 L 34 145 L 32 65"/>
+<path d="M66 50 L 74 65 L 70 135 L 78 140 L 66 145 L 68 65"/>
+<path d="M26 65 Q 50 75, 74 65"/>
+<path d="M30 135 L 36 215 L 44 220 L 50 215 L 48 135"/>
+<path d="M52 135 L 50 215 L 58 220 L 66 215 L 70 135"/>
+<path d="M36 50 Q 50 55, 66 50"/>
+<path d="M42 18 Q 50 15, 58 18"/>
+</svg>
+</div>
+<button class="btn-gold">Shop Men's</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 2- تسجيل عراقي -->
+<div id="vLogin" class="view hidden">
+<div class="login-bg">
+<div class="card">
+<div class="top-title">LOBARO & COSTIEU</div>
+<div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0 22px"><div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,#C9A86A,transparent)"></div><div style="color:#C9A86A">◈</div><div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,#C9A86A,transparent)"></div></div>
+<div class="main-title">تسجيل الدخول</div>
+<div class="sub-title">أهلاً بعودتك، يرجى تسجيل الدخول للمتابعة</div>
+<div class="label">رقم الهاتف</div>
+<div class="input-wrap" style="direction:ltr;gap:8px">
+<span style="color:#C9A86A;font-weight:900;font-size:14px;white-space:nowrap">🇮🇶 +964</span>
+<input id="phone" placeholder="77 0826 5111" value="77" style="direction:ltr;text-align:left" inputmode="numeric">
+</div>
+<div class="label">كلمة المرور</div>
+<div class="input-wrap">
+<span style="color:#C9A86A;margin-left:8px">🔒</span>
+<input id="pass" type="password" placeholder="••••••••••">
+<span style="color:#C9A86A;cursor:pointer" onclick="let i=document.getElementById('pass');i.type=i.type==='password'?'text':'password'">👁️</span>
+</div>
+<button class="btn-enter" onclick="openShop()">دخول</button>
+<div style="text-align:center;margin-top:16px"><a style="color:#C9A86A;font-size:13px;text-decoration:none;border-bottom:1px solid #C9A86A">نسيت كلمة المرور؟</a></div>
+<div style="text-align:center;margin-top:24px;color:#666;font-size:13px">ليس لديك حساب؟<br><b style="color:#C9A86A;border-bottom:1px solid #C9A86A;cursor:pointer" onclick="openShop()">إنشاء حساب</b></div>
+</div>
+</div>
+</div>
+
+<!-- 3- المتجر -->
+<div id="vShop" class="view hidden">
+<div class="header"><div style="background:#111;border:1px solid #222;padding:6px 10px;border-radius:10px">🛒 <span id="cc" style="color:#C9A86A;font-weight:900">0</span></div><div style="font-weight:900;letter-spacing:3px">LOBARO & COSTIEU</div></div>
+<div style="margin:10px;background:#111;border:1px solid #1e1e1e;border-radius:14px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center"><div style="display:flex;gap:8px;align-items:center"><span>✨</span><div><div style="font-weight:800;font-size:12px">جرب بالذكاء مجانا</div><div style="font-size:10px;color:#777">ارفع صورتك وشوف اللبس عليك</div></div></div><button style="background:#C9A86A;color:#000;border:none;padding:6px 12px;border-radius:8px;font-weight:900;font-size:11px" onclick="openAI()">جرب</button></div>
+<div id="grid" class="grid"></div>
+<div class="nav"><button onclick="openCart()">السلة</button><button onclick="openAI()">الذكاء ✨</button><button class="active">الرئيسية</button></div>
+</div>
+
+<div id="vCart" class="view hidden" style="padding:16px">
+<h2>السلة 🛒</h2><div id="clist" style="margin-top:12px"></div><div id="tot" style="font-weight:900;margin-top:12px"></div>
+<button style="width:100%;background:#C9A86A;color:#000;border:none;padding:12px;border-radius:12px;font-weight:900;margin-top:12px" onclick="orderWA()">طلب واتساب 📲 07708265111</button>
+<button style="width:100%;background:#111;color:#fff;border:1px solid #222;padding:12px;border-radius:12px;margin-top:8px" onclick="openShop()">رجوع</button>
+</div>
+
+<div id="vAI" class="view hidden" style="padding:16px">
+<h2>جرب بالذكاء ✨ مجانا</h2>
+<div style="margin-top:14px;border:2px dashed #333;border-radius:20px;padding:20px;text-align:center;background:#0f0f0f">
+<div id="pre">👤<br><span style="color:#555">ارفع صورتك</span></div>
+<img id="aimg" class="hidden" style="width:100%;border-radius:14px;max-height:340px;object-fit:cover">
+<div id="sel" style="margin-top:10px"></div>
+<label for="f" style="display:inline-block;margin-top:12px;background:#fff;color:#000;padding:11px 20px;border-radius:12px;font-weight:900;cursor:pointer">📸 ارفع صورتك</label>
+<input type="file" id="f" hidden accept="image/*" onchange="loadF(this)">
+</div>
+<div class="nav"><button onclick="openCart()">السلة</button><button class="active">الذكاء</button><button onclick="openShop()">الرئيسية</button></div>
+</div>
+
 <script>
-let men=[{id:1,name:'هودي LOBARO شتوي',price:42000,img:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500'},{id:2,name:'تيشيرت LOBARO Premium',price:28000,img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500'},{id:3,name:'قميص كاجوال',price:35000,img:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500'}];
-let cart=[];function render(){let gr=document.getElementById('grid');gr.innerHTML='';men.forEach(p=>{gr.innerHTML+=`<div class="card"><img src="${p.img}"><div class="info"><div class="name">${p.name}</div><div class="price">${p.price.toLocaleString()} د.ع</div><button class="btn-w" onclick="cart.push(men.find(x=>x.id==${p.id}));document.getElementById('cC').innerText=cart.length">اضف للسلة</button><button class="btn-a">جرب بالذكاء ✨ مجانا</button></div></div>`;});}render();
+let men=[{id:1,n:'هودي LOBARO شتوي',p:42000,im:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500'},{id:2,n:'تيشيرت LOBARO Premium',p:28000,im:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500'},{id:3,n:'قميص كاجوال',p:35000,im:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500'},{id:4,n:'جاكيت LOBARO',p:55000,im:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500'}];
+let women=[{id:5,n:'فستان COSTIEU سهرة',p:65000,im:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500'},{id:6,n:'طقم COSTIEU راقي',p:48000,im:'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500'}];
+let all=[...men,...women];let cart=[];let cur='men';let ai=null;
+function goLogin(g){cur=g;document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vLogin').classList.remove('hidden');}
+function openShop(){document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vShop').classList.remove('hidden');render();}
+function render(){let gr=document.getElementById('grid');gr.innerHTML='';(cur==='men'?men:women).forEach(o=>{gr.innerHTML+=`<div class="card-p"><img src="${o.im}"><div style="padding:8px"><div style="font-size:12px;font-weight:700;height:32px;overflow:hidden">${o.n}</div><div style="color:#C9A86A;font-weight:900;font-size:13px;margin-top:4px;direction:ltr;text-align:left">${o.p.toLocaleString()} د.ع</div><button style="width:100%;background:#fff;color:#000;border:none;padding:9px;border-radius:10px;font-weight:800;font-size:11px;margin-top:6px" onclick="add(${o.id})">اضف للسلة</button><button style="width:100%;background:transparent;color:#C9A86A;border:1px solid #222;padding:7px;border-radius:10px;font-size:10px;margin-top:4px" onclick="tryit(${o.id})">جرب بالذكاء ✨ مجانا</button></div></div>`;});}
+function add(id){let o=all.find(x=>x.id===id);cart.push(o);document.getElementById('cc').innerText=cart.length;}
+function openCart(){document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vCart').classList.remove('hidden');let l=document.getElementById('clist');l.innerHTML='';let t=0;cart.forEach((c,i)=>{t+=c.p;l.innerHTML+=`<div style="display:flex;gap:8px;background:#111;border:1px solid #1a1a1a;border-radius:12px;padding:8px;margin-bottom:6px"><img src="${c.im}" style="width:56px;height:56px;border-radius:8px;object-fit:cover"><div style="flex:1"><div style="font-size:12px;font-weight:700">${c.n}</div><div style="color:#C9A86A;font-size:11px">${c.p.toLocaleString()} د.ع</div><div onclick="cart.splice(${i},1);document.getElementById('cc').innerText=cart.length;openCart()" style="color:#f55;font-size:11px;margin-top:2px">حذف</div></div></div>`;});document.getElementById('tot').innerText='المجموع: '+t.toLocaleString()+' د.ع';}
+function openAI(){document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));document.getElementById('vAI').classList.remove('hidden');}
+function tryit(id){ai=all.find(x=>x.id===id);openAI();document.getElementById('sel').innerHTML=`<div style="background:#111;border:1px solid #222;border-radius:10px;padding:8px;display:flex;gap:8px"><img src="${ai.im}" style="width:44px;height:44px;border-radius:6px"><div><div style="font-size:11px;font-weight:700">${ai.n}</div><div style="color:#C9A86A;font-size:10px">${ai.p.toLocaleString()} د.ع</div></div></div><button onclick="alert('تمت التجربة ✨')" style="width:100%;margin-top:8px;background:#C9A86A;color:#000;border:none;padding:10px;border-radius:10px;font-weight:900">جرب الآن ✨ مجانا</button>`;}
+function loadF(i){if(i.files[0]){let r=new FileReader();r.onload=e=>{document.getElementById('aimg').src=e.target.result;document.getElementById('aimg').classList.remove('hidden');document.getElementById('pre').classList.add('hidden');};r.readAsDataURL(i.files[0]);}}
+function orderWA(){if(!cart.length){alert('السلة فارغة');return;}let t='مرحبا LOBARO اريد:%0A';cart.forEach(c=>t+=`- ${c.n} ${c.p} د.ع%0A`);window.open('https://wa.me/9647708265111?text='+t);}
 </script>
 </body>
 </html>
